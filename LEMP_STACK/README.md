@@ -56,7 +56,7 @@ Once the instance is running, connect to it via SSH.
 ssh -i /path/to/your-key.pem ubuntu@<your-ec2-public-ip>
 ```
 update your server
-![alt text](images/apt_update.PNG "apt update")
+![image](https://github.com/user-attachments/assets/e82f3017-70fd-4c97-9749-59898f7bcc63)
 
 ___ The private ssh key that got downloaded was located, permission was changed for the private key file and then used to connect to the instance by running
 ```
@@ -74,7 +74,7 @@ __1.__ __Update and upgrade the server’s package index__
 sudo apt update
 sudo apt upgrade -y
 ```
-![alt text](images/apt_update.PNG "apt update")
+![Screenshot from 2024-10-02 18-59-30](https://github.com/user-attachments/assets/9bb78d07-9ff1-4a7e-8437-9de015cc1fb2)
 
 
 __2.__ __Verify that nginx is active and running__
@@ -82,18 +82,19 @@ __2.__ __Verify that nginx is active and running__
 ```
 sudo systemctl status nginx
 ```
-![alt text](images/nginx.1.PNG "Install nginx")
-![alt text](images/nginx.2.PNG "nginx status")
+![Screenshot from 2024-10-02 18-59-52](https://github.com/user-attachments/assets/eaf91139-cef7-4198-bdae-519e9dfd95dd)
 
 __3.__ __Access nginx locally on the Ubuntu shell__
 
 ```
 curl http://54.198.242.36
 ```
-![alt text](images/nginx.3.PNG "nginx landing page")
+![Screenshot from 2024-10-02 19-01-13](https://github.com/user-attachments/assets/d6cdbb15-b6d8-401d-83f0-5feb45ba1b0c)
 
 
 __4.__ __Test with the public IP address if the Nginx server can respond to request from the internet using the url on a browser.__
+
+![Screenshot from 2024-10-02 19-06-20](https://github.com/user-attachments/assets/7084a712-eca5-483d-8ba1-684abce047a2)
 
 __5.__ __Now, you can visit your instance's public IP to verify that Nginx is working:
 http://54.198.242.36:80
@@ -106,11 +107,13 @@ MySQL was installed in this project. It is a popular relational database managem
 ```
 sudo apt install mysql-server
 ```
-![alt text](images/mysql.1.PNG "Install mysql-server")
+![Screenshot from 2024-10-02 19-13-08](https://github.com/user-attachments/assets/8e65f95d-02e5-4664-ba25-b5f38847d2bb)
+![Screenshot from 2024-10-02 19-21-36](https://github.com/user-attachments/assets/a88a9d89-b5e7-48c3-83ac-ebf534dc7244)
+
 
 Configure the user and key password
-![alt text](images/mysql_set.PNG "mysql configuration")
-![alt text](images/mysql_t.PNG "mysql login")
+![Screenshot from 2024-10-02 19-17-16](https://github.com/user-attachments/assets/38d5fda0-6151-44ff-9b3e-d75b6de2bf56)
+![Screenshot from 2024-10-02 19-18-06](https://github.com/user-attachments/assets/a49a6621-83d2-4d92-a0ee-fb7d02de9fd8)
 
 ## Step 4 - Configure nginx to use PHP processor
 
@@ -201,8 +204,9 @@ sudo echo ‘Hello LEMP from hostname’ $(curl -s http://169.254.169.254/latest
 ```
 http://<public-DNS-name>:80
 ```
-![alt text](images/dns_test.PNG "test with public dns")
-![alt text](images/test.ip.PNG "test with public ip")
+![Screenshot from 2024-10-02 19-42-03](https://github.com/user-attachments/assets/3faf9d30-ec08-4fee-a780-f9d21a426e2c)
+![Screenshot from 2024-10-02 19-42-44](https://github.com/user-attachments/assets/a176e0e2-13b5-4592-ac07-912cb47658a0)
+
 
 
 
@@ -226,7 +230,7 @@ sudo nano /var/www/projectLEMP/info.php
 <?php
 phpinfo();
 ```
-![alt text](images/phpt.PNG "test php with nginx")
+![Screenshot from 2024-10-04 19-56-50](https://github.com/user-attachments/assets/69799e17-8d17-4139-9118-a97d87653420)
 
  It’s best to remove the file created as it contains sensitive information about the PHP environment and the ubuntu server. after checking it,It can always be recreated if the information is needed later.
 ```
@@ -245,7 +249,7 @@ sudo mysql -p
 ```
 CREATE DATABASE todo_database;
 ```
-![alt text](images/db.PNG "Create database todo")
+![Screenshot from 2024-10-04 21-36-23](https://github.com/user-attachments/assets/f84102f1-22a9-494a-93b9-eac953217ae7)
 
 __3.__ __Create a new user and grant the user full privileges on the new database.__
 ```
@@ -256,7 +260,7 @@ GRANT ALL ON my_database.* TO 'my_user'@'%';
 ```
 exit
 ```
-![alt text](images/table.PNG "Create user")
+![Screenshot from 2024-10-04 21-45-37](https://github.com/user-attachments/assets/0214c390-a484-4af1-8eb6-abbfd930b22c)
 
 From MySQL console, run the following:
 ```
@@ -271,8 +275,7 @@ __6.__ __Insert a few rows of content to the test table__.
 INSERT INTO todo_database.todo_list (content) VALUES ("My first important item");
 
 ```
-![alt text](images/table3.PNG "Insertions into table")
-![alt text](images/table4.PNG "Insertions")
+![image](https://github.com/user-attachments/assets/1235ac0e-5667-4a72-b0a8-1ecf9adc17dd)
 
 
 
@@ -282,7 +285,7 @@ SELECT * FROM todo_database.todo_list;
 exit
 ```
 the select command acalso be used for several commands, removing, adding, verfying etc.
-![alt text](images/Tableinfo.PNG "Database infomation")
+![image](https://github.com/user-attachments/assets/b8ac371a-8046-48b6-8226-0906758e8376)
 
 
 ### Create a PHP script that will connect to MySQL and query the content.
@@ -329,4 +332,4 @@ Ater updating the Nginx server, the URL was tested again on the browser and ther
 ```
 http://your_instance_public_ip/todo_list.php
 ```
-![alt text](images/todo.PNG "Todo info")
+![image](https://github.com/user-attachments/assets/c11bedba-abbe-4359-a33e-392158167b34)
